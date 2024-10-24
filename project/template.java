@@ -6,10 +6,11 @@
 
 public class template 
 {
-    public static void showPCI()
-    {
+    public static void showPCI() {
         pciInfo pci = new pciInfo();
         pci.read();
+
+        System.out.println("Testing testing");
 
         System.out.println("\nThis machine has "+
             pci.busCount()+" PCI buses ");
