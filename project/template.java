@@ -103,6 +103,7 @@ public class template
 
         System.out.println ("There is "+mem.getTotal()+" memory of which "+
             mem.getUsed()+" is used");
+        System.out.println("waleed");
     }
 
     public static void main(String[] args)
