@@ -19,7 +19,10 @@ public class mainfile {
 
     //Aaron
     public static void showPCI()
-    {}
+    {
+	pciInfo pci = new pciInfo();
+        pci.read();
+	}
 
     //Rosie
     public static void showUSB()
