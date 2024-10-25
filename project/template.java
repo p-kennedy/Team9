@@ -10,7 +10,6 @@ public class template
         pciInfo pci = new pciInfo();
         pci.read();
 
-        System.out.println("Testing testing");
 
         System.out.println("\nThis machine has "+
             pci.busCount()+" PCI buses ");
