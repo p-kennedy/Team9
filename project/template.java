@@ -1,4 +1,4 @@
-public class Template { // Ensure your class is named appropriately
+public class template { // Ensure your class is named appropriately
     // Vendor mapping class using arrays
     static class VendorMapper {
         private static final int[] vendorIds = {0x1234, 0x5678}; // Add more IDs as needed
