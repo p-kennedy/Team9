@@ -17,7 +17,7 @@ public class template
         // Iterate through each bus
         for (int i = 0; i < pci.busCount(); i++) {
             System.out.println("Bus "+i+" has "+
-                pci.deviceCount(i)+" device");
+                pci.deviceCount(i)+" devices");
 
             // Iterate for up to 32 devices.  Not every device slot may be populated
             // so ensure at least one function before printing device information
