@@ -29,7 +29,7 @@ public class template
                     // Iterate through up to 8 functions per device.
                     for (int k = 0; k < 8; k++) {
                         if (pci.functionPresent (i, j, k) > 0) {
-			if (pci.vendorID = 8086) {
+			if (pci.vendorID(i,j,k) = 8086) {
 				System.out.println("Bus "+i+" device "+j+" is an Intel device with function:");
 					}
                             System.out.println("Bus "+i+" device "+j+" function "+k+
