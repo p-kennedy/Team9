@@ -30,7 +30,7 @@ public class template
                     for (int k = 0; k < 8; k++) {
                         if (pci.functionPresent (i, j, k) > 0) {
 			if (pci.vendorID = 8086) {
-				System.out.println("Bus "+i+" device "+j+" is an Intel device with function:"
+				System.out.println("Bus "+i+" device "+j+" is an Intel device with function:")
 					}
                             System.out.println("Bus "+i+" device "+j+" function "+k+
                                 " has vendor "+String.format("0x%04X", pci.vendorID(i,j,k))+
