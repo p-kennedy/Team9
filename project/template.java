@@ -1,11 +1,5 @@
-/*
- *  Example class containing methods to read and display CPU, PCI and USB information
- *
- *  Copyright (c) 2024 Mark Burkley (mark.burkley@ul.ie)
- */
-
-
- // Vendor mapping class using arrays
+public class Template { // Ensure your class is named appropriately
+    // Vendor mapping class using arrays
     static class VendorMapper {
         private static final int[] vendorIds = {0x1234, 0x5678}; // Add more IDs as needed
         private static final String[] vendorNames = {"Example Vendor 1", "Example Vendor 2"};
@@ -40,21 +34,17 @@
             }
         }
     }
+
    
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         System.loadLibrary("sysinfo");
-        sysInfo info = new sysInfo();
+
         cpuInfo cpu = new cpuInfo();
         cpu.read(0);
 
-        showCPU();
-        showPCI();
+        
         showUSB();
-        showDisk();
-        showMem();
+       
     }
-    
 }
-
