@@ -10,7 +10,6 @@ public class template
         pciInfo pci = new pciInfo();
         pci.read();
 
-
         System.out.println("\nThis machine has "+
             pci.busCount()+" PCI bus ");
 
@@ -18,6 +17,7 @@ public class template
         for (int i = 0; i < pci.busCount(); i++) {
             System.out.println("Bus "+i+" has "+
                 pci.deviceCount(i)+" devices");
+		System.out.println("");
 
             // Iterate for up to 32 devices.  Not every device slot may be populated
             // so ensure at least one function before printing device information
@@ -36,16 +36,35 @@ public class template
                     // Iterate through up to 8 functions per device.
                     for (int k = 0; k < 8; k++) {
                         if (pci.functionPresent (i, j, k) > 0) {
-                            System.out.println("Bus "+i+" device "+j+" function "+k+
+			if (pci.vendorID(i,j,k) == 32902) {
+			System.out.println("Intel Corporation: ");
+		if (pci.productID(i,j,k) == 4663) {
+		System.out.print("440FX - 82441FX PMC [Natoma]"); 
+	}
+} 
+                         else if (pci.vendorID(i,j,k) == 5549) {
+                        System.out.println("VMWare: SVGA II Adapter");
+} 
+			else if (pci.vendorID(i,j,k) == 33006 ) {
+                        System.out.println("InnoTek Systemberatung GmbH: VirtualBox Guest Service");
+}
+			else if (pci.vendorID(i,j,k) == 4203) {
+                        System.out.println("Apple Inc.: KeyLargo/Intrepid USB");
+} 
+ 
+                                else {
+
+				   System.out.println("Bus "+i+" device "+j+" function "+k+
                                 " has vendor "+String.format("0x%04X", pci.vendorID(i,j,k))+
                                 " and product "+String.format("0x%04X", pci.productID(i,j,k)));
                         }
+					System.out.println("");
                     }
                 }
             }
         }
     }
-
+}
     public static void showUSB()
     {
         usbInfo usb = new usbInfo();
