@@ -23,8 +23,15 @@ public class template
             // so ensure at least one function before printing device information
             for (int j = 0; j < 32; j++) {
                 if (pci.functionCount (i, j) > 0) {
+		if (pci.functionCount (i, j) < 2) {
+
+                    System.out.println("Bus "+i+" device "+j+" has "+
+                        pci.functionCount(i, j)+" function");
+}
+		else {
                     System.out.println("Bus "+i+" device "+j+" has "+
                         pci.functionCount(i, j)+" functions");
+}
 
                     // Iterate through up to 8 functions per device.
                     for (int k = 0; k < 8; k++) {
