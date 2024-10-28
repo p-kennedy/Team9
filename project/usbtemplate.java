@@ -36,9 +36,10 @@ public class usbtemplate {
         }
     }
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         System.loadLibrary("sysinfo");
         showUSB();
         // You can call showPCI() and showCPU() as well if needed
     }
 }
+*/
