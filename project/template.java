@@ -105,7 +105,7 @@ public class template
     }
 
     public static void main(String[] args)
-    {
+   /* {
         System.loadLibrary("sysinfo");
         sysInfo info = new sysInfo();
         cpuInfo cpu = new cpuInfo();
@@ -116,6 +116,7 @@ public class template
         showUSB();
         showDisk();
         showMem();
-    }
+    }*/
+    
 }
 
