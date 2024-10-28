@@ -12,7 +12,7 @@ public class template
 
 
         System.out.println("\nThis machine has "+
-            pci.busCount()+" PCI buses ");
+            pci.busCount()+" PCI bus ");
 
         // Iterate through each bus
         for (int i = 0; i < pci.busCount(); i++) {
