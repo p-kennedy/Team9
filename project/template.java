@@ -42,8 +42,8 @@
     }
    
 
-    public static void main(String[] args);*/
-   /* {
+    public static void main(String[] args)
+    {
         System.loadLibrary("sysinfo");
         sysInfo info = new sysInfo();
         cpuInfo cpu = new cpuInfo();
@@ -54,7 +54,7 @@
         showUSB();
         showDisk();
         showMem();
-    }*/
+    }
     
 }
 
