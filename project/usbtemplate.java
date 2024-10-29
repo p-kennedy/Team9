@@ -1,4 +1,4 @@
-public class usbtemplate {
+/*public class usbtemplate {
 
     // Vendor mapping class using arrays
     static class VendorMapper {
@@ -42,4 +42,5 @@ public class usbtemplate {
         // You can call showPCI() and showCPU() as well if needed
     }
 }
+*/
 */
