@@ -32,8 +32,8 @@ public class template {
                 int productId = usb.productID(i, j);
 
                 System.out.println("Bus " + i + " device " + j +
-                       // " has vendor ID " + String.format("0x%04X", vendorId) +
-                        //" (" + vendorName + ")" +
+                        " has vendor ID " + hexVendorID +
+                        " (" + vendorName + ")" +
                         //" and product ID " + String.format("0x%04X", productId));
                 System.out.println(hexVendorId);
             }
