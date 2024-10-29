@@ -10,35 +10,83 @@ public class template
         pciInfo pci = new pciInfo();
         pci.read();
 
-
         System.out.println("\nThis machine has "+
-            pci.busCount()+" PCI buses ");
+            pci.busCount()+" PCI bus ");
 
         // Iterate through each bus
         for (int i = 0; i < pci.busCount(); i++) {
             System.out.println("Bus "+i+" has "+
-                pci.deviceCount(i)+" device");
+                pci.deviceCount(i)+" devices");
+		System.out.println("");
 
             // Iterate for up to 32 devices.  Not every device slot may be populated
             // so ensure at least one function before printing device information
             for (int j = 0; j < 32; j++) {
                 if (pci.functionCount (i, j) > 0) {
+		if (pci.functionCount (i, j) < 2) {
+
+                    System.out.println("Bus "+i+" device "+j+" has "+
+                        pci.functionCount(i, j)+" function");
+}
+		else {
                     System.out.println("Bus "+i+" device "+j+" has "+
                         pci.functionCount(i, j)+" functions");
+}
 
                     // Iterate through up to 8 functions per device.
                     for (int k = 0; k < 8; k++) {
                         if (pci.functionPresent (i, j, k) > 0) {
-                            System.out.println("Bus "+i+" device "+j+" function "+k+
+			if (pci.vendorID(i,j,k) == 32902) {
+			System.out.print("Intel Corporation: ");
+		if (pci.productID(i,j,k) == 4663) {
+		System.out.println("440FX - 82441FX PMC [Natoma]"); 
+	}
+		if (pci.productID(i,j,k) == 28672) {
+                System.out.println("82371SB PIIX3 ISA [Natoma/Triton II]"); 
+        }
+		if (pci.productID(i,j,k) == 28945) {
+                System.out.println("82371AB/EB/MB PIIX4 IDE"); 
+        }
+		if (pci.productID(i,j,k) == 4110) {
+                System.out.println("82540EM Gigabit Ethernet Controller"); 
+        }
+		if (pci.productID(i,j,k) == 9237) {
+                System.out.println("82801AA AC'97 Audio Controller"); 
+        }
+		if (pci.productID(i,j,k) == 28947) {
+                System.out.println("82371AB/EB/MB PIIX4 ACPI"); 
+        }
+		if (pci.productID(i,j,k) == 9820) {
+                System.out.println("82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller"); 
+        }
+		if (pci.productID(i,j,k) == 10281) {
+                System.out.println("82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [ACHI mode]"); 
+        }
+
+} 
+                         else if (pci.vendorID(i,j,k) == 5549) {
+                        System.out.println("VMWare: SVGA II Adapter");
+} 
+			else if (pci.vendorID(i,j,k) == 33006 ) {
+                        System.out.println("InnoTek Systemberatung GmbH: VirtualBox Guest Service");
+}
+			else if (pci.vendorID(i,j,k) == 4203) {
+                        System.out.println("Apple Inc.: KeyLargo/Intrepid USB");
+} 
+ 
+                                else {
+
+				   System.out.println("Bus "+i+" device "+j+" function "+k+
                                 " has vendor "+String.format("0x%04X", pci.vendorID(i,j,k))+
                                 " and product "+String.format("0x%04X", pci.productID(i,j,k)));
                         }
+					System.out.println("");
                     }
                 }
             }
         }
     }
-
+}
     public static void showUSB()
     {
         usbInfo usb = new usbInfo();
