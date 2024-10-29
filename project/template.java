@@ -31,17 +31,17 @@ public class template {
                 String vendorName = VendorMapper.getVendorName(hexVendorId);
                 int productId = usb.productID(i, j);
 
-                System.out.println("Bus " + i + " device " + j +
-                        " has vendor ID " + hexVendorID +
-                        " (" + vendorName + ")" +
+                System.out.println("Bus " + i + " device " + j + "has vendor ID" + hexVendorId + vendorName + "and product Id" + String.format("0x%04X", productId);
+                       // " has vendor ID " + hexVendorID +
+                        // (" + vendorName + ")" +
                         //" and product ID " + String.format("0x%04X", productId));
-                System.out.println(hexVendorId);
+               // System.out.println(hexVendorId);
             }
         }
     }
 
    
-/*
+
     public static void main(String[] args) {
         System.loadLibrary("sysinfo");
 
@@ -54,4 +54,4 @@ public class template {
        
     }
 }
-*/
+
