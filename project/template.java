@@ -35,6 +35,7 @@ public class template {
                         " has vendor ID " + String.format("0x%04X", vendorId) +
                         " (" + vendorName + ")" +
                         " and product ID " + String.format("0x%04X", productId));
+                System.out.println(hexVendorId);
             }
         }
     }
@@ -44,12 +45,12 @@ public class template {
     public static void main(String[] args) {
         System.loadLibrary("sysinfo");
 
-        cpuInfo cpu = new cpuInfo();
-        cpu.read(0);
+        //cpuInfo cpu = new cpuInfo();
+        //cpu.read(0);
 
         
         showUSB();
-        System.out.println(hexVendorId);
+        
        
     }
 }
