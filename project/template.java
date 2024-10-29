@@ -27,14 +27,14 @@ public class template {
             System.out.println("Bus " + i + " has " + usb.deviceCount(i) + " devices");
 
             for (int j = 1; j <= usb.deviceCount(i); j++) {
-                int vendorId = usb.vendorID(i, j);
-                String vendorName = VendorMapper.getVendorName(vendorId);
+                int hexVendorId = usb.hexVendorID(i, j);
+                String vendorName = VendorMapper.getVendorName(hexVendorId);
                 int productId = usb.productID(i, j);
 
                 System.out.println("Bus " + i + " device " + j +
-                        " has vendor ID " + String.format("0x%04X", vendorId) +
-                        " (" + vendorName + ")" +
-                        " and product ID " + String.format("0x%04X", productId));
+                       // " has vendor ID " + String.format("0x%04X", vendorId) +
+                        //" (" + vendorName + ")" +
+                        //" and product ID " + String.format("0x%04X", productId));
                 System.out.println(hexVendorId);
             }
         }
