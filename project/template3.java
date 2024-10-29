@@ -1,4 +1,4 @@
-public class template3 { 
+/*public class template3 { 
     // Vendor mapping class using arrays
     static class VendorMapper {
         private static final int[] vendorIds = {0x08de, 0x18f8, 0x1c87, 0x1630, 0x08c8};
@@ -36,6 +36,8 @@ public class template3 {
 
 /*    public static void main(String[] args) {
         System.loadLibrary("sysinfo");
+
+        */
         showUSB();
     }
 }
