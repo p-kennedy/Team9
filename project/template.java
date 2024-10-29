@@ -27,7 +27,7 @@ public class template {
             System.out.println("Bus " + i + " has " + usb.deviceCount(i) + " devices");
 
             for (int j = 1; j <= usb.deviceCount(i); j++) {
-                int hexVendorId = usb.hexVendorID(i, j);
+                int vendorId = usb.vendorId(i, j);
                 String vendorName = VendorMapper.getVendorName(vendorId);
                 int productId = usb.productID(i, j);
 
