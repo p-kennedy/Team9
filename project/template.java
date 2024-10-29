@@ -118,15 +118,15 @@ public class template
         cpu.read(0);
 
         // Show CPU model, CPU sockets and cores per socket
-        System.out.println("CPU " + cpu.getModel() + " has "+
-            cpu.socketCount() + " sockets each with "+
-            cpu.coresPerSocket() + " cores");
-
+        System.out.println("CPU " + cpu.getModel());
+        System.out.println("Sockets: "+ cpu.socketCount() + "    Cores: " + cpu.coresPerSocket());
+	System.out.println("");
         // Show sizes of L1,L2 and L3 cache
         System.out.println("l1d="+cpu.l1dCacheSize()/1024+"KB");
            System.out.println("l1i="+cpu.l1iCacheSize()/1024+"KB");
            System.out.println("l2="+cpu.l2CacheSize()/1024+"KB");
            System.out.println("l3="+cpu.l3CacheSize()/1024+"KB");
+	System.out.println("");
 
         // Sleep for 1 second and display the idle time percentage for
         // core 1.  This assumes 10Hz so in one second we have 100
