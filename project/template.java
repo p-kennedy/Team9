@@ -37,8 +37,8 @@ public class template {
     public static void main(String[] args) {
         System.loadLibrary("sysinfo"); // Load the library for USB information
 
-        // Assuming cpuInfo is defined correctly
-        CpuInfo cpu = new CpuInfo();
+        
+        showCPU();
         cpu.read(0); // Read CPU information
 
         showUSB(); // Display USB information
