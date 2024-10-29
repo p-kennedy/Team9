@@ -37,10 +37,32 @@ public class template
                     for (int k = 0; k < 8; k++) {
                         if (pci.functionPresent (i, j, k) > 0) {
 			if (pci.vendorID(i,j,k) == 32902) {
-			System.out.println("Intel Corporation: ");
+			System.out.print("Intel Corporation: ");
 		if (pci.productID(i,j,k) == 4663) {
-		System.out.print("440FX - 82441FX PMC [Natoma]"); 
+		System.out.println("440FX - 82441FX PMC [Natoma]"); 
 	}
+		if (pci.productID(i,j,k) == 28672) {
+                System.out.println("82371SB PIIX3 ISA [Natoma/Triton II]"); 
+        }
+		if (pci.productID(i,j,k) == 28945) {
+                System.out.println("82371AB/EB/MB PIIX4 IDE"); 
+        }
+		if (pci.productID(i,j,k) == 4110) {
+                System.out.println("82540EM Gigabit Ethernet Controller"); 
+        }
+		if (pci.productID(i,j,k) == 9237) {
+                System.out.println("82801AA AC'97 Audio Controller"); 
+        }
+		if (pci.productID(i,j,k) == 28947) {
+                System.out.println("82371AB/EB/MB PIIX4 ACPI"); 
+        }
+		if (pci.productID(i,j,k) == 9820) {
+                System.out.println("82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller"); 
+        }
+		if (pci.productID(i,j,k) == 10281) {
+                System.out.println("82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [ACHI mode]"); 
+        }
+
 } 
                          else if (pci.vendorID(i,j,k) == 5549) {
                         System.out.println("VMWare: SVGA II Adapter");
