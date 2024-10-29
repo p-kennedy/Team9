@@ -73,6 +73,10 @@ public class template
 			else if (pci.vendorID(i,j,k) == 4203) {
                         System.out.println("Apple Inc.: KeyLargo/Intrepid USB");
 } 
+			else if (pci.vendorID(i,j,k) == 6900) {
+                        System.out.println("Red Hat, Inc.: Virtio file system");
+} 
+ 
  
                                 else {
 
