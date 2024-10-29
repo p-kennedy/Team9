@@ -1,4 +1,4 @@
-public class template5 { 
+/*public class template5 { 
     // Vendor mapping class using arrays
     static class VendorMapper {
         private static final int[] vendorIds = {0x08de, 0x18f8, 0x1c87, 0x1630, 0x08c8};
@@ -41,3 +41,4 @@ public class template5 {
       */
     }
 }
+*/
