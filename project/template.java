@@ -10,7 +10,6 @@ public class template
         pciInfo pci = new pciInfo();
         pci.read();
 
-        System.out.println("Testing testing");
 
         System.out.println("\nThis machine has "+
             pci.busCount()+" PCI buses ");
@@ -83,28 +82,77 @@ public class template
         System.out.println("core 1 idle="+cpu.getIdleTime(1)+"%");
     }
 
-    public static void showDisk()
-    {
+    public static void showDisk() {
         diskInfo disk = new diskInfo();
         disk.read();
 
+        System.out.printf("%-13s %-13s %-13s %-13s %-10s %-10s%n", "Disk Name", "Total", "Used", "Available", "Usage(%)", "Status");
+        System.out.println("=============================================================================");
+
         // Iterate through all of the disks
         for (int i = 0; i < disk.diskCount(); i++) {
-            System.out.println ("disk "+disk.getName(i)+" has "+
-                disk.getTotal(i)+" blocks, of which "+
-                disk.getUsed(i)+" are used");
+            String name = disk.getName(i);
+            long total = disk.getTotal(i);
+            long used = disk.getUsed(i);
+            long available = disk.getAvailable(i);
+            double usagePercentage = (double) used / total * 100;
+            String status = (usagePercentage < 80) ? "Healthy" :"Warning";
+
+            System.out.printf("%-13s %-13s %-13s %-13s %-6.2f%%     %-10s%n",
+                    name, formatdisk(total), formatdisk(used), formatdisk(available), usagePercentage, status);
         }
     }
+    private static String formatdisk(long bytes) {
+        String[] diskunits = {"Bytes", "KB", "MB", "GB", "TB"};
+        double size = bytes;
+        int unitIndex = 0;
 
-    public static void showMem()
-    {
+        while (size >= 1024 && unitIndex < diskunits.length - 1) {
+            size /= 1024;
+            unitIndex++;
+        }
+
+        return String.format("%.2f %s", size, diskunits[unitIndex]);
+    }
+
+
+
+    public static void showMem() {
         memInfo mem = new memInfo();
         mem.read();
 
-        System.out.println ("There is "+mem.getTotal()+" memory of which "+
-            mem.getUsed()+" is used");
-        System.out.println("waleed");
+        long totalMemory = mem.getTotal();
+        long usedMemory = mem.getUsed();
+        long availableMemory = totalMemory - usedMemory;
+
+        double usagePercentage = (double) usedMemory / totalMemory * 100;
+
+        System.out.printf("%nMemory Overview:%n");
+        System.out.printf("%-15s %-10s %-10s %-10s %-10s%n", "Total", "Used", "Available", "Usage(%)", "Status");
+        System.out.println("=======================================================");
+
+        System.out.printf("%-15s %-10s %-10s %-10s %-10s%n",
+                formatMemory(totalMemory),
+                formatMemory(usedMemory),
+                formatMemory(availableMemory),
+                String.format("%.2f%%", usagePercentage),
+                (usagePercentage < 80) ? "Healthy" : "Warning");
     }
+
+    // Helper method to format memory sizes
+    private static String formatMemory(long bytes) {
+        String[] units = {"Bytes", "KB", "MB", "GB", "TB"};
+        double size = bytes;
+        int unitIndex = 0;
+
+        while (size >= 1024 && unitIndex < units.length - 1) {
+            size /= 1024;
+            unitIndex++;
+        }
+
+        return String.format("%.2f %s", size, units[unitIndex]);
+    }
+
 
     public static void main(String[] args)
     {
