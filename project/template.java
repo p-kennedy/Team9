@@ -121,22 +121,34 @@ public class template
         System.out.println("CPU " + cpu.getModel());
         System.out.println("Sockets: "+ cpu.socketCount() + "    Cores: " + cpu.coresPerSocket());
 	System.out.println("");
-        // Show sizes of L1,L2 and L3 cache
+
+	// Show sizes of L1,L2 and L3 cache
+        System.out.println("---Caches---");
         System.out.println("l1d="+cpu.l1dCacheSize()/1024+"KB");
            System.out.println("l1i="+cpu.l1iCacheSize()/1024+"KB");
            System.out.println("l2="+cpu.l2CacheSize()/1024+"KB");
            System.out.println("l3="+cpu.l3CacheSize()/1024+"KB");
-	System.out.println("");
+                System.out.println("");
 
         // Sleep for 1 second and display the idle time percentage for
         // core 1.  This assumes 10Hz so in one second we have 100
         cpu.read(1);
-        System.out.println("core 1 Idle="+cpu.getIdleTime(1)+"%");
+        System.out.println("Core 1 Idle="+cpu.getIdleTime(0)+"%");
 	cpu.read(1);
-        System.out.println("core 1 System="+cpu.getSystemTime(1)+"%");
+        System.out.println("Core 1 System="+cpu.getSystemTime(0)+"%");
 	cpu.read(1);
-        System.out.println("core 1 User="+cpu.getUserTime(1)+"%");
+        System.out.println("Core 1 User="+cpu.getUserTime(0)+"%");
+		System.out.println("");
 
+	// Core 2 Read
+	if (cpu.coresPerSocket() > 1) {
+	cpu.read(1);
+        System.out.println("Core 2 Idle="+cpu.getIdleTime(1)+"%");
+        cpu.read(1);
+        System.out.println("Core 2 System="+cpu.getSystemTime(1)+"%");
+        cpu.read(1);
+        System.out.println("Core 2 User="+cpu.getUserTime(1)+"%");
+	}
     }
 
     public static void showDisk() {
