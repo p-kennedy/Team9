@@ -14,8 +14,8 @@ public class template {
                     return vendorNames[i];
                 }
             }
-            return "Unknown Vendor";
-        }
+          //  return "Unknown Vendor";
+      //  }
     }
 
     public static void showUSB() {
