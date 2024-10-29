@@ -7,10 +7,10 @@ public class template {
 
         public static String getVendorName(int vendorId) {
 
-            String hexVendorId = String.format("0x%04X", vendorId);
+          //  String hexVendorId = String.format("0x%04X", vendorId);
 
             for (int i = 0; i < vendorIds.length; i++) {
-                if (vendorIds[i] == hexVendorId) {
+                if (vendorIds[i] == vendorId) {
                     return vendorNames[i];
                 }
             }
@@ -28,14 +28,14 @@ public class template {
 
             for (int j = 1; j <= usb.deviceCount(i); j++) {
                 int hexVendorId = usb.hexVendorID(i, j);
-                String vendorName = VendorMapper.getVendorName(hexVendorId);
+                String vendorName = VendorMapper.getVendorName(vendorId);
                 int productId = usb.productID(i, j);
 
-                System.out.println("Bus " + i + " device " + j + "has vendor ID" + hexVendorId + vendorName + "and product Id" + String.format("0x%04X", productId);
+                System.out.println("Bus " + i + " device " + j + "has vendor ID" + vendorId + vendorName + "and product Id" + String.format("0x%04X", productId);
                        // " has vendor ID " + hexVendorID +
                         // (" + vendorName + ")" +
                         //" and product ID " + String.format("0x%04X", productId));
-               // System.out.println(hexVendorId);
+               // System.out.println(vendorId);
             }
         }
     }
