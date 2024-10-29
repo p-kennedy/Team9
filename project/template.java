@@ -8,7 +8,6 @@ public class template {
         public static String getVendorName(int vendorId) {
 
             String hexVendorId = String.format("0x%04X", vendorId);
-            System.out.println(hexVendorId);
 
             for (int i = 0; i < vendorIds.length; i++) {
                 if (vendorIds[i] == hexVendorId) {
@@ -50,6 +49,7 @@ public class template {
 
         
         showUSB();
+        System.out.println(hexVendorId);
        
     }
 }
