@@ -1,4 +1,4 @@
-import java.io.PrintStream;
+/*import java.io.PrintStream;
 public class template {
     // Vendor mapping class using arrays
     static class VendorMapper {
@@ -35,7 +35,7 @@ public class template {
         }
     }
 
-  /*  public static void main(String[] args) {
+    public static void main(String[] args) {
         System.loadLibrary("sysinfo"); // Load the library for USB information
 
         
@@ -43,7 +43,7 @@ public class template {
         cpu.read(0); // Read CPU information
 
         showUSB(); // Display USB information
-      */
+     
 
 
     public static void main(String[] args) {
@@ -56,3 +56,4 @@ public class template {
         showUSB();
     }
 }
+*/
