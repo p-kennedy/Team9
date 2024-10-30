@@ -8,6 +8,8 @@ public class template
 {
    
 	public static void showSystemInfo() {
+	System.out.println("System Info");
+		
         String operatingSystem = System.getProperty("os.name");
         String osVersion = System.getProperty("os.version");
         String architecture = System.getProperty("os.arch");
@@ -23,6 +25,7 @@ public class template
             else {
                 System.out.println("JRE Version: No Java Version found.");
         }
+		System.out.println("=======================================================");
 
 
 
