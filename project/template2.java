@@ -39,8 +39,8 @@ public static void main(String[] args)
 {
     System.loadLibrary("sysinfo");
     sysInfo info = new sysInfo();
-    cpuInfo cpu = new cpuInfo();
-    cpu.read(0);
+    //cpuInfo cpu = new cpuInfo();
+   // cpu.read(0);
     showUSB();
 
 }
