@@ -1,7 +1,6 @@
 /*
- *  Example class containing methods to read and display CPU, PCI and USB, Disk and System information
+ *  Class containing methods to read and display CPU, PCI and USB, Disk and System information.
  *
- *  Copyright (c) 2024 Mark Burkley (mark.burkley@ul.ie)
  */
 
 public class template 
@@ -151,6 +150,7 @@ public static class VendorMapper {
 	//print Ids as hexadecimal values
             System.out.println("Bus " + i + " device " + j +  " has vendor ID " + String.format("0x%04X", vendorId) +
                     " (" + vendorName + ")" + " and product ID " + String.format("0x%04X", productId));
+		System.out.println("");
         }
     }
 }
